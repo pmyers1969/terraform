@@ -1,3 +1,11 @@
+locals {
+  tags = {
+    environment = "test"
+    department = "IT"
+    source = "terraform"
+  }
+}
+
 terraform {
   backend "azurerm" {
   }
@@ -14,4 +22,8 @@ provider "azurerm" {
 resource "azurerm_resource_group" "rgdemo" {
     name = var.rg_name
     location = var.loc
+
+    tags = merge(local.tags, {
+    workload = "testresources"
+  })
 }
