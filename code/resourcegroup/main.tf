@@ -3,6 +3,7 @@ locals {
     environment = "test"
     department = "IT"
     source = "terraform"
+    "created by" = "someone"
   }
 }
 
