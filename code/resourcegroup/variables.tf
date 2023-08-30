@@ -1,4 +1,4 @@
-variable "location" {
+variable "loc" {
   type        = string
   description = "The Azure location where all resources in this example should be created"
 }
