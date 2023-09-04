@@ -1,0 +1,3 @@
+az aks list --resource-group rg-prompt-oarfish --query "[].{\"K8s cluster name\":name}" --output table
+
+az aks get-credentials --resource-group rg-prompt-oarfish --name cluster-improved-garfish --admin
