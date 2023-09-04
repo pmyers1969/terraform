@@ -35,3 +35,19 @@ variable "front_door_sku_name" {
     error_message = "The SKU value must be one of the following: Standard_AzureFrontDoor, Premium_AzureFrontDoor."
   }
 }
+
+variable "ARM_CLIENT_ID" {
+  type        = string
+}
+
+variable "ARM_CLIENT_SECRET" {
+  type        = string
+}
+
+variable "ARM_SUBSCRIPTION_ID" {
+  type        = string
+}
+
+variable "ARM_TENANT_ID" {
+  type        = string
+}
