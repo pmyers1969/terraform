@@ -8,8 +8,8 @@ resource "azurerm_resource_group" "rg" {
 
 module "appservice" {
   source = "../modules/appservice"
-  resource_group_name          = var.resource_group_name
-  resource_group_location      = var.resource_group_location
+  resource_group_name          = azurerm_resource_group.rg.name
+  resource_group_location      = azurerm_resource_group.rg.location
   app_service_plan_name        = var.app_service_plan_name
   app_service_plan_sku_name    = var.app_service_plan_sku_name
   app_service_plan_capacity    = var.app_service_plan_capacity
