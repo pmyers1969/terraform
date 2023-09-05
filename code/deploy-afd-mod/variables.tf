@@ -1,7 +1,7 @@
 variable "resource_group_location" {
   type        = string
   description = "Location for all resources."
-  default     = "eastusaustraliasoutheast"
+  default     = "australiasoutheast"
 }
 
 variable "app_service_plan_name" {
