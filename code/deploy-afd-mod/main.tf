@@ -9,10 +9,10 @@ resource "azurerm_resource_group" "rg" {
 module "appservice" {
   source = "../modules/appservice"
   resource_group_name          = var.resource_group_name
-  location                     = var.resource_group_location
+  resource_group_location      = var.resource_group_location
   app_service_plan_name        = var.app_service_plan_name
   app_service_plan_sku_name    = var.app_service_plan_sku_name
-  worker_count                 = var.app_service_plan_capacity
+  app_service_plan_capacity    = var.app_service_plan_capacity
   webapp_name                  = var.webapp_name
 }
 
