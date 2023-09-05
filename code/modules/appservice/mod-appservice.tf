@@ -13,8 +13,8 @@ resource "azurerm_service_plan" "app_service_plan" {
 
 resource "azurerm_windows_web_app" "app" {
   name                = var.webapp_name
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_service_plan.app_service_plan.id
 
   https_only = true
