@@ -5,3 +5,7 @@ output "web_app_name" {
 output "web_app_hostname" {
   value = azurerm_windows_web_app.app.default_hostname
 }
+
+output "depended_on" {
+  value = "${null_resource.dependency_setter.id}"
+}
