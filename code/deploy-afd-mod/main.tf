@@ -14,7 +14,7 @@ module "appservice" {
   app_service_plan_capacity    = var.app_service_plan_capacity
   webapp_name                  = var.webapp_name
   dependencies = [ 
-    "${module.afd.depended_on}"
+    module.afd.depended_on
    ]
 }
 
@@ -22,7 +22,7 @@ module "afd" {
   source = "../modules/afd"
   front_door_sku_name = var.front_door_sku_name
   dependencies = [
-    "${module.appservice.depended_on}"
+    module.appservice.depended_on
   ]
 }
 
