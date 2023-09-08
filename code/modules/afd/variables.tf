@@ -7,8 +7,3 @@ variable "front_door_sku_name" {
     error_message = "The SKU value must be one of the following: Standard_AzureFrontDoor, Premium_AzureFrontDoor."
   }
 }
-
-variable "dependencies" {
-  type    = list(string)
-  default = []
-}

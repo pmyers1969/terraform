@@ -7,18 +7,11 @@ locals {
   front_door_route_name        = "MyRoute"
 }
 
-resource "null_resource" "dependency_getter" {
-  provisioner "local-exec" {
-    command = "echo ${length(var.dependencies)}"
-  }
-}
-
 resource "azurerm_cdn_frontdoor_profile" "my_front_door" {
   name                = local.front_door_profile_name
   resource_group_name = azurerm_resource_group.rg.name
   sku_name            = var.front_door_sku_name
-  depends_on          = [null_resource.dependency_getter]
-}
+  }
 
 resource "azurerm_cdn_frontdoor_endpoint" "my_endpoint" {
   name                     = local.front_door_endpoint_name
@@ -68,10 +61,4 @@ resource "azurerm_cdn_frontdoor_route" "my_route" {
   forwarding_protocol    = "HttpsOnly"
   link_to_default_domain = true
   https_redirect_enabled = true
-}
-
-resource "null_resource" "dependency_setter" {
-  depends_on = [
-    azurerm_cdn_frontdoor_origin.my_app_service_origin
-  ]
 }
