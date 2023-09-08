@@ -48,6 +48,6 @@ resource "azurerm_windows_web_app" "app" {
 
 resource "null_resource" "dependency_setter" {
   depends_on = [
-    azurerm_windows_web_app.app,
+    azurerm_windows_web_app.app
   ]
 }
