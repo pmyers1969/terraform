@@ -9,6 +9,6 @@ variable "front_door_sku_name" {
 }
 
 variable "dependencies" {
-  type    = "list"
+  type    = list(string)
   default = []
 }

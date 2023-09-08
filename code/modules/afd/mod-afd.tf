@@ -72,6 +72,6 @@ resource "azurerm_cdn_frontdoor_route" "my_route" {
 
 resource "null_resource" "dependency_setter" {
   depends_on = [
-    "azurerm_cdn_frontdoor_profile.my_front_door",
+    azurerm_cdn_frontdoor_profile.my_front_door,
   ]
 }

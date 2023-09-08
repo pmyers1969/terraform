@@ -24,6 +24,6 @@ variable "webapp_name" {
   }
 
 variable "dependencies" {
-    type    = "list"
+    type    = list(string)
     default = []
 }
