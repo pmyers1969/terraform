@@ -9,6 +9,7 @@ resource "azurerm_service_plan" "app_service_plan" {
   name                = var.app_service_plan_name
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
+  depends_on          = [null_resource.dependency_getter]
 
   sku_name            = var.app_service_plan_sku_name
   os_type             = "Windows"
@@ -22,7 +23,7 @@ resource "azurerm_windows_web_app" "app" {
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_service_plan.app_service_plan.id
-  depends_on          = [null_resource.dependency_getter]
+  
 
   https_only = true
 
