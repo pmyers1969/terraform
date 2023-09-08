@@ -3,7 +3,7 @@ output "frontDoorEndpointHostName" {
 }
 
 output "depended_on" {
-  value = "${null_resource.dependency_setter.id}"
+  value = null_resource.dependency_setter.id
 }
 
 output "frontDoorEndpointProfileGUID" {

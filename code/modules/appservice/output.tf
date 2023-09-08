@@ -7,5 +7,5 @@ output "web_app_hostname" {
 }
 
 output "depended_on" {
-  value = "${null_resource.dependency_setter.id}"
+  value = null_resource.dependency_setter.id
 }
