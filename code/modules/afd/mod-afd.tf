@@ -9,7 +9,7 @@ locals {
 
 resource "azurerm_cdn_frontdoor_profile" "my_front_door" {
   name                = local.front_door_profile_name
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = var.resource_group_name
   sku_name            = var.front_door_sku_name
   }
 

@@ -8,8 +8,8 @@ module "resourcegroup" {
 
 module "appservice" {
   source = "../modules/appservice"
-  resource_group_name          = module.resourcegroup.name
-  resource_group_location      = module.resourcegroup.location
+  resource_group_name          = module.resourcegroup.resource_group_name
+  resource_group_location      = module.resourcegroup.resource_group_location
   app_service_plan_name        = var.app_service_plan_name
   app_service_plan_sku_name    = var.app_service_plan_sku_name
   app_service_plan_capacity    = var.app_service_plan_capacity
@@ -19,7 +19,9 @@ module "appservice" {
 
 module "afd" {
   source = "../modules/afd"
-  front_door_sku_name = var.front_door_sku_name
+  front_door_sku_name          = var.front_door_sku_name
+  resource_group_name          = module.resourcegroup.resource_group_name
+  resource_group_location      = module.resourcegroup.resource_group_location
   
 }
 
