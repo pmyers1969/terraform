@@ -48,6 +48,10 @@ variable "resource_group_name" {
   default     = "rg-test-afd"
 }
 
+variable "x_azure_fdid" {
+  type        = string
+} 
+
 
 variable "ARM_CLIENT_ID" {
   type        = string

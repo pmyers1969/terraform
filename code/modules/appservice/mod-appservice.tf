@@ -31,7 +31,7 @@ resource "azurerm_windows_web_app" "app" {
       action                    = "Allow"
       priority                  = 100
       headers {
-        x_azure_fdid      = [module.afd.frontDoorEndpointProfileGUID]
+        x_azure_fdid      = [var.x_azure_fdid]
         x_fd_health_probe = []
         x_forwarded_for   = []
         x_forwarded_host  = []

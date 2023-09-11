@@ -22,3 +22,7 @@ variable "app_service_plan_sku_name" {
 variable "webapp_name" {
     type            = string
   }
+
+variable "x_azure_fdid" {
+  type        = string
+} 
