@@ -50,6 +50,8 @@ variable "resource_group_name" {
 
 variable "x_azure_fdid" {
   type        = string
+  description = "Value of Front Door GUID to restrict access to Web App"
+  default     = null
 } 
 
 
