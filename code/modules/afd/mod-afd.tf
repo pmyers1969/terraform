@@ -41,10 +41,10 @@ resource "azurerm_cdn_frontdoor_origin" "my_app_service_origin" {
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.my_origin_group.id
 
   enabled                        = true
-  host_name                      = module.appservice.web_app_hostname
+  host_name                      = var.web_app_hostname
   http_port                      = 80
   https_port                     = 443
-  origin_host_header             = module.appservice.web_app_hostname
+  origin_host_header             = var.web_app_hostname
   priority                       = 1
   weight                         = 1000
   certificate_name_check_enabled = true

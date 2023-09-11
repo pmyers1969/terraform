@@ -22,6 +22,7 @@ module "afd" {
   front_door_sku_name          = var.front_door_sku_name
   resource_group_name          = module.resourcegroup.resource_group_name
   resource_group_location      = module.resourcegroup.resource_group_location
+  web_app_hostname             = module.appservice.web_app_hostname
   
 }
 
