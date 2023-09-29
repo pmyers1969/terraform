@@ -1,5 +1,5 @@
 variable "subnets" {
-  type = map(any)
+  type              = map(any)
 }
 
 variable "resource_group_name" {
@@ -8,5 +8,5 @@ variable "resource_group_name" {
 
 variable "vnet_name" {
     type            = string
-    description = "Virtual Network Name"
+    description     = "Virtual Network Name"
 }
