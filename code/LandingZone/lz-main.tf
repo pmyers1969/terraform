@@ -25,4 +25,5 @@ module "subnet" {
   source                  = "../modules/subnet"
   resource_group_name     = module.resourcegroup.resource_group_name
   vnet_name               = module.vnet.vnet_name
+  subnets                 = var.subnets
 }
