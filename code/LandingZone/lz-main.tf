@@ -20,3 +20,9 @@ module "vnet" {
   vnet_name               = var.vnet_name
   vnet_address_space      = var.vnet_address_space
 }
+
+module "subnet" {
+  source                  = "../modules/subnet"
+  resource_group_name     = module.resourcegroup.resource_group_name
+  vnet_name               = module.vnet.vnet_name
+}
