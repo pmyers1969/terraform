@@ -36,7 +36,7 @@ variable "vnet_name" {
 variable "vnet_address_space" {
   type        = string
   description = "Virtual Network Address Space"
-  default     = "10.0.0.0/16"
+  default     = ["10.0.0.0/16"]
 }
 
 variable "subnets" {

@@ -1,10 +1,10 @@
 variable "vnet_name" {
-    type = string
+    type            = string
     description = "Virtual Network Name"
 }
 
 variable "vnet_address_space" {
-    type = string
+    type            = string
     description = "Virtual Network Address Space"
 }
 
