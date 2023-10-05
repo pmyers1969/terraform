@@ -1,9 +1,9 @@
-variable "vnet_name" {
-    type            = string
-    description = "Virtual Network Name"
+variable "vnets" {
+    type            = map(any)
+    description = "Virtual Network Names"
 }
 
-variable "vnet_address_space" {
+variable "address_space" {
     type            = string
     description = "Virtual Network Address Space"
 }
