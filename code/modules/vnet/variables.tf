@@ -4,7 +4,7 @@ variable "vnets" {
 }
 
 variable "address_space" {
-    type            = string
+    type            = list(string)
     description = "Virtual Network Address Space"
 }
 
