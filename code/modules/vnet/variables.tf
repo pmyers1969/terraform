@@ -1,11 +1,11 @@
 variable "vnets" {
     type            = map(any)
-    description = "Virtual Network Names"
+    description     = "Virtual Network Names"
 }
 
 variable "address_space" {
-    type            = list(string)
-    description = "Virtual Network Address Space"
+    type            = string
+    description     = "Virtual Network Address Space"
 }
 
 variable "resource_group_name" {
