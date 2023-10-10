@@ -27,7 +27,7 @@ module "subnet" {
   for_each                = flatten([for k, v in var.vnets : [for s in v.subnets : { vnet_key = k, subnet_name = s }]])
   subnet_name             = each.value.subnet_name
   address_prefix          = cidrsubnet(lookup(var.vnets, each.value.vnet_key).address_space, 8, each.key)
-  vnet_id                 = module.vnet[each.value.vnet_key].vnet_id
+  vnet_name               = each.value.vnet_name
   resource_group_name     = module.resourcegroup.resource_group_name
 }
 

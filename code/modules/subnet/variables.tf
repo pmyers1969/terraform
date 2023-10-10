@@ -11,7 +11,7 @@ variable "address_prefix" {
   type        = string
 }
 
-variable "vnet_id" {
-  description = "ID of the VNet to which the subnet belongs"
-  type        = string
+variable "vnet_name" {
+    type            = string
+    description     = "Virtual Network Name"
 }
