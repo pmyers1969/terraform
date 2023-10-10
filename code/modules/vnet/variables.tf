@@ -1,10 +1,10 @@
-variable "vnets" {
-    type            = map(any)
-    description     = "Virtual Network Names"
+variable "vnet_name" {
+    type            = string
+    description     = "Virtual Network Name"
 }
 
 variable "address_space" {
-    type            = list(string)
+    type            = string
     description     = "Virtual Network Address Space"
 }
 

@@ -19,13 +19,15 @@ module "vnet" {
   resource_group_name     = module.resourcegroup.resource_group_name
   resource_group_location = module.resourcegroup.resource_group_location
   vnet_name               = each.key
-  subnet_names            = each.value.subnet_names
-  vnet_address_space      = each.value.address_space
+  address_space           = each.value.address_space
 }
 
-#module "subnet" {
-#  source                  = "../modules/subnet"
-#  resource_group_name     = module.resourcegroup.resource_group_name
-#  vnet_name               = module.vnet.vnet_name
-#  subnets                 = var.subnets
-#}
+module "subnet" {
+  source                  = "../modules/subnet"
+  for_each                = flatten([for k, v in var.vnets : [for s in v.subnets : { vnet_key = k, subnet_name = s }]])
+  subnet_name             = each.value.subnet_name
+  address_prefix          = cidrsubnet(lookup(var.vnets, each.value.vnet_key).address_space, 8, each.key)
+  vnet_id                 = module.vnets[each.value.vnet_key].vnet_id
+  resource_group_name     = module.resourcegroup.resource_group_name
+}
+
