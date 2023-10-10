@@ -31,15 +31,15 @@ variable "resource_group_location" {
 
 variable "vnets" {
   description = "Map of VNets and their subnets"
-  type        = map(map(string(list(string))))
+  type        = map(map(list(string)))
   default = {
     "vnet1" = {
-      address_space = "10.0.0.0/16"
+      address_space = ["10.0.0.0/16"]
       subnets       = ["subnet_1", "subnet_2","subnet_3"]
       }
     
     "vnet2" = {
-      address_space = "10.1.0.0/16"
+      address_space = ["10.1.0.0/16"]
       subnets       = ["subnet_4", "subnet_5"]
       }
     }
