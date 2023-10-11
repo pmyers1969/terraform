@@ -17,13 +17,10 @@ provider "azurerm" {
 }
 
 locals {
-  flattened_map = flatten([
-    for g, pr in var.nested_map : [
-      g
-    ]
-  ])
+  flattened_map = flatten([for k, v in var.vnets : [for s in v.subnets : { vnet_key = k, subnet_name = s }]])
 }
 
 output "result" {
   value = local.flattened_map
 }
+
