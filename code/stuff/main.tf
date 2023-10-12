@@ -16,25 +16,30 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_virtual_network" "vnet" {
-  for_each              = var.vnets
-  name                  = each.key
-  address_space         = [each.value["address_space"]]
-  location              = "AustraliaSoutheast"
-  resource_group_name   = "rg-test"
+data "azurerm_resource_group" "network" {
+  name = var.resource_group_name
 }
 
-resource "azurerm_subnet" "subnet" {
-  for_each                  = flatten([for k, v in var.vnets : [for s in v.subnets : { vnet_key = k, subnet_name = s }]])
-  resource_group_name       = "rg-test"
-  virtual_network_name      = each.value.vnet_name
-  name                      = each.value.subnet_name
-  #address_prefixes          = cidrsubnet(lookup(var.vnets, each.value.vnet_key).address_space, 8, 0)
-  address_prefixes        = "10.${substr(lookup(azurerm_virtual_network.vnet[each.key].address_space, 4, "0"), 0, 1)}.0.0/24"
+resource "azurerm_virtual_network" "vnets" {
+  for_each            = var.vnets
+  name                = each.key
+  resource_group_name = data.azurerm_resource_group.network.name
+  location            = data.azurerm_resource_group.network.location
+  address_space       = [each.value.address_space]
 }
+
+resource "azurerm_subnet" "subnets" {
+  for_each             = local.subnets
+  name                 = each.value.subnet_name
+  resource_group_name  = data.azurerm_resource_group.network.name
+  virtual_network_name = azurerm_virtual_network.vnets[each.value.vnet_name].name
+  address_prefixes     = [each.value.subnet_address]
+  service_endpoints    = each.value.service_endpoints
+}
+
 
 
 output "result" {
-  value = [for subnet in azurerm_subnet.subnet: subnet.name]
+  value = [for subnets in azurerm_subnet.subnets: subnets.name]
 }
 
