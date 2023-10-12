@@ -18,7 +18,7 @@ provider "azurerm" {
 
 resource "azurerm_subnet" "subnet" {
   for_each                  = flatten([for k, v in var.vnets : [for s in v.subnets : { vnet_key = k, subnet_name = s }]])
-  resource_group_name       = rg-test
+  resource_group_name       = "rg-test"
   virtual_network_name      = each.value.vnet_name
   name                      = each.value.subnet_name
   address_prefixes          = cidrsubnet(lookup(var.vnets, each.value.vnet_key).address_space, 8, each.key)
