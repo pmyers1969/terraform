@@ -21,11 +21,11 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name       = "rg-test"
   virtual_network_name      = each.value.vnet_name
   name                      = each.value.subnet_name
-  address_prefixes          = cidrsubnet(lookup(var.vnets, each.value.vnet_key).address_space, 8, each.key)
+  address_prefixes          = cidrsubnet(lookup(var.vnets, each.value.vnet_key).address_space, 8, 0)
 }
 
 
 output "result" {
-  value = var.vnets
+  value = [for subnet in azure_rmazurerm_subnet.subnet: subnet.name]
 }
 
