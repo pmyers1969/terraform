@@ -18,22 +18,6 @@ variable "vnets" {
   }
 
 
-  variable "nested_map" {
-  type = map(any)
-  default = {
-    "group:manager@flatten.com" = [
-      "roles/viewer",
-      "roles/editor"
-    ],
-    "group:developer@flatten.com" = [
-      "roles/viewer",
-    ],
-    "group:opertaions@flatten.com" = [
-      "roles/owner",
-      "roles/admin",
-    ],
-  }
-}
 
 variable "ARM_CLIENT_ID" {
   type = string
