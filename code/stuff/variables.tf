@@ -19,6 +19,7 @@ variable "vnets" {
 
 
 
+
 variable "ARM_CLIENT_ID" {
   type = string
 }
