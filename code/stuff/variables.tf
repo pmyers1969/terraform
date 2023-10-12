@@ -1,6 +1,7 @@
 variable "resource_group_name" {
   description = "Name of the resource group to be imported."
-  type        = "rg-test"
+  type        = string
+  default     = "rg-test"
 }
 
 variable "location" {
