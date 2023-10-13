@@ -11,34 +11,35 @@ variable "location" {
 }
 
 variable "vnets" {
-  type = object({
+  type = map(object({
     address_space = string
     subnets = list(object({
       subnet_name    = string
       subnet_address = string
       service_endpoints = list(string)
     }))
-  })
+  }))
 
   default = {
     "bupavnet1" = {
       address_space = "192.168.0.0/16",
-      subnets       = []
+      subnets       = [
+        {
+          subnet_name    = "subnet1_bupavnet1"
+          subnet_address = "192.168.0.0/24"
+          service_endpoints = []
+        }
+      ]
     },
     "bupavnet2" = {
       address_space = "10.0.0.0/16",
       subnets = [
         {
-          subnet_name    = "subnet1_bupavnet1"
+          subnet_name    = "subnet1_bupavnet2"
           subnet_address = "10.0.2.0/24"
           service_endpoints = []
-        },
-        {
-          subnet_name    = "GatewaySubnet"
-          subnet_address = "10.0.0.0/24"
-          service_endpoints = ["Microsoft.AzureCosmosDB","Microsoft.ContainerRegistry"]
-          
         }
+
       ]
     },
 
