@@ -7,6 +7,6 @@ locals {
       service_endpoints = subnet.service_endpoints
     }
     ]
-  ]...)
+  ])
   subnets = { for subnet in local.subnets_flatlist : subnet.subnet_name => subnet }
 }
