@@ -11,14 +11,14 @@ variable "location" {
 }
 
 variable "vnets" {
-  type = map(object({
+  type = object({
     address_space = string
     subnets = list(object({
       subnet_name    = string
       subnet_address = string
       service_endpoints = list(string)
     }))
-  }))
+  })
 
   default = {
     "bupavnet1" = {
