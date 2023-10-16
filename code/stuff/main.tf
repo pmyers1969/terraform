@@ -39,7 +39,7 @@ locals {
     }
     ]
   ])
-  subnets = { for subnet in local.subnets_flatlist : subnet.subnet_name => subnet }
+  subnets = { for subnet in local.subnets_flatlist : subnet.subnet_name => subnet ...}
 }
 
 resource "azurerm_subnet" "subnets" {
