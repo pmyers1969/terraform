@@ -12,7 +12,7 @@ variable "location" {
 
 variable "vnets" {
   type = map(object({
-    address_space = string,
+    address_space = list(string),
     subnets = map(object({
       subnet_name = string,
       cidr_block = string 
