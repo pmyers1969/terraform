@@ -57,6 +57,15 @@ variable "vnets" {
            cidr_block       = "10.80.0.0/24"
         }
       }
+    },
+    "bupavnet4"               = {
+      address_space         = "10.81.0.0/16",
+      subnets               = {
+        "subnet1_bupavnet4" = {
+           subnet_name      = "subnet1_bupavnet4"
+           cidr_block       = "10.81.0.0/24"
+        }
+      }
     }
   }
 }
