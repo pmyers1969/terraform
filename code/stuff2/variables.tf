@@ -12,15 +12,15 @@ variable "location" {
 
 variable "vnets" {
   type = map(object({
-    address_space = list(string),
+    address_space = list(string)
     subnets = map(object({
-      subnet_name = string,
+      subnet_name = string
       cidr_block = string 
     }))
   }))
   default = {
     "bupavnet1"               = {
-      address_space         = "192.168.0.0/16",
+      address_space         = "192.168.0.0/16"
       subnets               = {
         "subnet1_bupavnet1" = {
            subnet_name      = "subnet1_bupavnet1"
@@ -29,7 +29,7 @@ variable "vnets" {
       }
     },
     "bupavnet2"               = {
-      address_space         = "10.0.0.0/16",
+      address_space         = "10.0.0.0/16"
       subnets               = {
         "subnet1_bupavnet2"   = {
            subnet_name      = "subnet1_bupavnet2"
@@ -42,7 +42,7 @@ variable "vnets" {
       }
     },
     "bupavnet3"               = {
-      address_space         = "10.80.0.0/16",
+      address_space         = "10.80.0.0/16"
       subnets               = {
         "subnet1_bupavnet3"   = {
            subnet_name      = "subnet1_bupavnet3"
@@ -59,7 +59,7 @@ variable "vnets" {
       }
     },
     "bupavnet4"               = {
-      address_space         = "10.81.0.0/16",
+      address_space         = "10.81.0.0/16"
       subnets               = {
         "subnet1_bupavnet4" = {
            subnet_name      = "subnet1_bupavnet4"
