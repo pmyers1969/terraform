@@ -16,7 +16,6 @@ variable "vnets" {
     subnets = list(object({
       subnet_name    = string
       subnet_address = string
-      service_endpoints = list(string)
     }))
   }))
 
@@ -27,7 +26,6 @@ variable "vnets" {
         {
           subnet_name    = "subnet1_bupavnet1"
           subnet_address = "192.168.0.0/24"
-          service_endpoints = []
         }
       ]
     },
@@ -37,7 +35,6 @@ variable "vnets" {
         {
           subnet_name    = "subnet1_bupavnet2"
           subnet_address = "10.0.2.0/24"
-          service_endpoints = []
         }
 
       ]
@@ -49,18 +46,15 @@ variable "vnets" {
         {
           subnet_name    = "subnet1_bupavnet3"
           subnet_address = "10.80.2.0/24"
-          service_endpoints = ["Microsoft.AzureCosmosDB","Microsoft.ContainerRegistry"]
         },
 
         {
           subnet_name    = "subnet2_bupavnet3"
           subnet_address = "10.80.1.0/24"
-          service_endpoints = ["Microsoft.AzureCosmosDB","Microsoft.ContainerRegistry"]
         },
         {
           subnet_name    = "GatewaySubnet"
           subnet_address = "10.80.0.0/24"
-          service_endpoints = ["Microsoft.AzureCosmosDB","Microsoft.ContainerRegistry"]
         },
       ]
     }

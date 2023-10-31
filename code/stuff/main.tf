@@ -30,25 +30,27 @@ resource "azurerm_virtual_network" "vnets" {
 }
 
 locals {
-  subnets_flatlist = flatten([for key, val in var.vnets : [
-    for subnet in val.subnets : {
-      vnet_name         = key
-      subnet_name       = subnet.subnet_name
-      subnet_address    = subnet.subnet_address
-      service_endpoints = subnet.service_endpoints
-    }
+  subnets_flatlist = flatten([
+    for key, val in var.vnets : [
+      for subnet in val.subnets : {
+        vnet_name         = key
+        subnet_name       = subnet.subnet_name
+        subnet_address    = subnet.subnet_address
+      }
     ]
   ])
-  subnets = { for subnet in local.subnets_flatlist : subnet.subnet_name => subnet ...}
+//  subnets = { for subnet in local.subnets_flatlist : subnet.subnet_name => subnet ...}
 }
 
 resource "azurerm_subnet" "subnets" {
-  for_each             = local.subnets
+  for_each             = { 
+    for subnet in local.subnets_flatlist : subnet.subnet_name => subnet ...
+  }
+
   name                 = each.value.subnet_name
   resource_group_name  = azurerm_resource_group.network.name
   virtual_network_name = azurerm_virtual_network.vnets[each.value.vnet_name].name
   address_prefixes     = [each.value.subnet_address]
-  service_endpoints    = each.value.service_endpoints
 }
 
 
