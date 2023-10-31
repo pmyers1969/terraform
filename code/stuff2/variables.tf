@@ -19,8 +19,8 @@ variable "vnets" {
     }))
   }))
   default = {
-    "bupavnet1"             = {
-      address_space         = "192.168.0.0/16"
+    "bupavnet1"               = {
+      address_space         = "192.168.0.0/16",
       subnets               = {
         "subnet1_bupavnet1" = {
            subnet_name      = "subnet1_bupavnet1"
@@ -28,27 +28,27 @@ variable "vnets" {
         }
       }
     },
-    "bupavnet2"             = {
-      address_space         = "10.0.0.0/16"
+    "bupavnet2"               = {
+      address_space         = "10.0.0.0/16",
       subnets               = {
-        "subnet1_bupavnet2" = {
+        "subnet1_bupavnet2"   = {
            subnet_name      = "subnet1_bupavnet2"
            cidr_block       = "10.0.2.0/24"
         }
       }
     },
-    "bupavnet3"             = {
-      address_space         = "10.80.0.0/16"
+    "bupavnet3"               = {
+      address_space         = "10.80.0.0/16",
       subnets               = {
-        "subnet1_bupavnet3" = {
+        "subnet1_bupavnet3"   = {
            subnet_name      = "subnet1_bupavnet3"
            cidr_block       = "10.80.2.0/24"
         },
-        "subnet2_bupavnet3" = {
-           subnet_name      = "subnet1_bupavnet3"
+        "subnet2_bupavnet3"   = {
+           subnet_name      = "subnet2_bupavnet3"
            cidr_block       = "10.80.1.0/24"
         },
-        "GatewaySubnet"     = {
+        "GatewaySubnet"       = {
            subnet_name      = "GatewaySubnet"
            cidr_block       = "10.80.0.0/24"
         }
