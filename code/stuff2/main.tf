@@ -26,7 +26,7 @@ resource "azurerm_virtual_network" "vnets" {
   name                = each.key
   resource_group_name = azurerm_resource_group.network.name
   location            = azurerm_resource_group.network.location
-  address_space       = each.value.cidr_block
+  address_space       = each.value.address_space
 }
 
 locals {
