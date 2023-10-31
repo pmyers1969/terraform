@@ -20,7 +20,7 @@ variable "vnets" {
   }))
   default = {
     "bupavnet1"             = {
-      cidr_block            = "192.168.0.0/16"
+      address_space         = "192.168.0.0/16"
       subnets               = {
         "subnet1_bupavnet1" = {
            subnet_name      = "subnet1_bupavnet1"
@@ -29,7 +29,7 @@ variable "vnets" {
       }
     },
     "bupavnet2"             = {
-      cidr_block            = "10.0.0.0/16"
+      address_space         = "10.0.0.0/16"
       subnets               = {
         "subnet1_bupavnet2" = {
            subnet_name      = "subnet1_bupavnet2"
@@ -38,7 +38,7 @@ variable "vnets" {
       }
     },
     "bupavnet3"             = {
-      cidr_block            = "10.80.0.0/16"
+      address_space         = "10.80.0.0/16"
       subnets               = {
         "subnet1_bupavnet3" = {
            subnet_name      = "subnet1_bupavnet3"
