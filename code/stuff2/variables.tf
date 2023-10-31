@@ -35,6 +35,10 @@ variable "vnets" {
            subnet_name      = "subnet1_bupavnet2"
            cidr_block       = "10.0.2.0/24"
         }
+        "subnet2_bupavnet2"   = {
+           subnet_name      = "subnet2_bupavnet2"
+           cidr_block       = "10.0.3.0/24"
+        }
       }
     },
     "bupavnet3"               = {
