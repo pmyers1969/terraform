@@ -35,8 +35,8 @@ locals {
       for subnet_key, subnet in network.subnets : {
         network_key   = network_key
         subnet_key    = subnet_key
-        subnet_name   = subnet.subnet_name
-        cidr_block    = subnet.cidr_block
+        subnet_name   = subnet[0].subnet_name
+        cidr_block    = subnet[0].cidr_block
       }
     ]
   ])
@@ -50,7 +50,7 @@ resource "azurerm_subnet" "subnets" {
 
   name                 = each.value.subnet_name
   resource_group_name  = azurerm_resource_group.network.name
-  virtual_network_name = azurerm_virtual_network.vnets[each.value.network_key].name
+  virtual_network_name = azurerm_virtual_network.vnets[each.key].name
   address_prefixes     = [each.value.cidr_block]
 }
 
