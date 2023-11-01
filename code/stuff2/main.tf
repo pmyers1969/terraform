@@ -52,6 +52,7 @@ resource "azurerm_subnet" "subnets" {
   resource_group_name  = azurerm_resource_group.network.name
   virtual_network_name = each.value.network_key
   address_prefixes     = [each.value.cidr_block]
+  depends_on = [ azurerm_virtual_network.vnets ]
 }
 
 
