@@ -64,12 +64,8 @@ variable "vnets" {
         "subnet1_bupavnet4" = {
            subnet_name      = "subnet1_bupavnet4"
            cidr_block       = "10.81.0.0/24"
-        },
-        "GatewaySubnet"       = {
-           subnet_name      = "GatewaySubnet"
-           cidr_block       = "10.81.1.0/24"
         }
-      }
+       }
     }
   }
 }

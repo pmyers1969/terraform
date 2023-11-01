@@ -45,7 +45,7 @@ locals {
 
 resource "azurerm_subnet" "subnets" {
   for_each             = { 
-    for subnet in local.network_subnets : subnet.subnet_key => subnet ...
+    for subnet in local.network_subnets : subnet.subnet_key => subnet
   }
 
   name                 = each.value.subnet_name
