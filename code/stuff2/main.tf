@@ -35,8 +35,8 @@ locals {
       for subnet_key, subnet in network.subnets : {
         network_key   = network_key
         subnet_key    = subnet_key
-        subnet_name   = subnet[0].subnet_name
-        cidr_block    = subnet[0].cidr_block
+        subnet_name   = subnet.subnet_name
+        cidr_block    = subnet.cidr_block
       }
     ]
   ])
