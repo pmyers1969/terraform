@@ -24,13 +24,21 @@ variable "vnets" {
     vnet_name = "vnet100"
     address_space = [ "10.20.0.0/16" ]
     subnets = {
-     subnet_name = "subnet1"
-     cidr_block = "10.20.0.0/24" 
+      "subnet1" = {
+         subnet_name = "subnet1"
+         cidr_block = "10.20.0.0/24" 
+      }
     }
   },
   {
     vnet_name = "vnet101"
     address_space = [ "10.21.0.0/16" ]
+    subnets = {
+      "subnet2" = {
+         subnet_name = "subnet2"
+         cidr_block = "10.21.0.0/24" 
+      }
+    }
   }
   ]
 }
