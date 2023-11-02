@@ -43,6 +43,20 @@ locals {
 
 }
 
+resource "azurerm_subnet" "subnets" {
+  for_each             = { 
+    for subnet in local.network_subnets : subnet.subnet_key => subnet
+  }
+
+  name                 = each.value.subnet_name
+  resource_group_name  = azurerm_resource_group.network.name
+  virtual_network_name = each.value.network_key
+  address_prefixes     = each.value.cidr_block
+
+}
+
+
+
 output "example_output" {
   value = local.network_subnets
 }
