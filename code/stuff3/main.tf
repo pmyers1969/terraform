@@ -29,5 +29,24 @@ resource "azurerm_virtual_network" "vnets" {
   address_space       = each.value.address_space
 }
 
+locals {
+  network_subnets = flatten([
+    for network_key, network in var.vnets : [
+      for subnet_key, subnet in network.subnets : {
+        network_key   = network_key
+        subnet_key    = subnet_key
+        subnet_name   = subnet["subnet_name"]
+        cidr_block    = subnet["cidr_block"]
+      }
+    ]
+  ])
 
+}
 
+output "example_output" {
+  value = local.network_subnets.network_key
+}
+
+output "example_output2" {
+  value = local.network_subnets.subnet_key
+}

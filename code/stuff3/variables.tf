@@ -15,10 +15,17 @@ variable "vnets" {
   type = list(object({
     vnet_name = string
     address_space = list(string)
+    subnets = map(object)
+      subnet_name = string
+      cidr_block  = string
     }))
   default = [{
     vnet_name = "vnet100"
     address_space = [ "10.20.0.0/16" ]
+    subnets = {
+     subnet_name = "subnet1"
+     cidr_block = "10.20.0.0/24" 
+    }
   },
   {
     vnet_name = "vnet101"
@@ -26,9 +33,6 @@ variable "vnets" {
   }
   ]
 }
-
-
-
 
 
 variable "ARM_CLIENT_ID" {
