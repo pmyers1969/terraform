@@ -44,9 +44,6 @@ locals {
 }
 
 output "example_output" {
-  value = local.network_subnets.network_key
+  value = local.network_subnets
 }
 
-output "example_output2" {
-  value = local.network_subnets.subnet_key
-}
