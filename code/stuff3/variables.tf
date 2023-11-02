@@ -19,8 +19,12 @@ variable "vnets" {
   default = [{
     vnet_name = "vnet100"
     address_space = [ "10.20.0.0/16" ]
-   
-  }]
+  },
+  {
+    vnet_name = "vnet101"
+    address_space = [ "10.21.0.0/16" ]
+  }
+  ]
 }
 
 
