@@ -26,8 +26,12 @@ variable "vnets" {
     subnets = {
       "subnet1" = {
          subnet_name = "subnet1"
-         cidr_block = "10.20.0.0/24" 
-      }
+         cidr_block  = "10.20.0.0/24" 
+      },
+      "GatewaySubnet" = {
+        subnet_name    = "GatewaySubnet"
+        cidr_block     = "10.20.1.0/24"
+      }  
     }
   },
   {
@@ -36,11 +40,11 @@ variable "vnets" {
     subnets = {
       "subnet2" = {
          subnet_name = "subnet2"
-         cidr_block = "10.21.0.0/24" 
+         cidr_block  = "10.21.0.0/24" 
       },
       "GatewaySubnet" = {
         subnet_name    = "GatewaySubnet"
-        cidr_block = "10.21.1.0/24"
+        cidr_block     = "10.21.1.0/24"
       }  
     }
   }
