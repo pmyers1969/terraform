@@ -37,7 +37,11 @@ variable "vnets" {
       "subnet2" = {
          subnet_name = "subnet2"
          cidr_block = "10.21.0.0/24" 
-      }
+      },
+      "GatewaySubnet" = {
+        subnet_name    = "GatewaySubnet"
+        cidr_block = "10.21.1.0/24"
+      }  
     }
   }
   ]
