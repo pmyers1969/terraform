@@ -41,5 +41,6 @@ module "subnet" {
   address_prefix          = [cidrsubnet(var.vnets[each.value.vnet_name].address_space, 8, each.value.subnet_index)]
   vnet_name               = each.value.vnet_name
   resource_group_name     = module.resourcegroup.resource_group_name
+  depends_on              = [module.vnet]
 }
 
